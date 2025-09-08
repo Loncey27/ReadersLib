@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReadersLib — App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/2aaa300193.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brown: {
+                50: "#fdf8f6",
+                100: "#f4e9e3",
+                200: "#e7d0c2",
+                300: "#d9b39d",
+                400: "#c98f70",
+                500: "#a87048",
+                600: "#8b5736",
+                700: "#6e4429",
+                800: "#553321",
+                900: "#3c2318",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body class="bg-brown-50 min-h-screen flex flex-col">
+    <!-- Back Button -->
+    <div class="back-btn hidden" id="backButton">
+      <span><i class="fa-solid fa-arrow-left"></i></span>
+    </div>
+
+    <!-- Landing Section -->
+    <section id="landingSection" class="flex flex-col min-h-screen">
+      <!-- Header -->
+      <header class="bg-brown-700 text-white shadow">
+        <div
+          class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between"
+        >
+          <div class="flex items-center gap-4">
+            <div class="text-lg font-bold">ReadersLib</div>
+          </div>
+          <nav class="flex gap-6 justify-center">
+            <a href="#features" class="hover:underline">Features</a>
+            <a href="#collections" class="hover:underline">Collections</a>
+            <a href="#testimonials" class="hover:underline">Testimonials</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <div
+        class="hero-section h-96 flex-grow flex items-center justify-center text-center text-white p-6"
+      >
+        <div class="max-w-3xl">
+          <h1 class="text-5xl font-bold mb-6">Your Personal Digital Library</h1>
+          <p class="text-xl mb-8">
+            Discover, borrow and enjoy thousands of classic books. All in one
+            place.
+          </p>
+          <div class="flex justify-center gap-4">
+            <button
+              onclick="showSection('signup')"
+              class="bg-brown-600 text-white px-8 py-3 rounded-lg shadow hover:bg-brown-700"
+            >
+              Get Started
+            </button>
+            <button
+              onclick="showSection('signin')"
+              class="border border-white text-white px-8 py-3 rounded-lg hover:bg-brown-700"
+            >
+              Sign In
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <section id="features" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center text-brown-700 mb-12">
+            Why Choose ReadersLib?
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+              class="feature-card bg-brown-50 rounded-lg p-6 text-center shadow"
+            >
+              <div class="text-4xl mb-4">
+                <span class="text-brown-300"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Extensive Collection</h3>
+              <p class="text-gray-700">
+                Access thousands of classic books from around the world, all
+                available for free.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-brown-50 rounded-lg p-6 text-center shadow"
+            >
+              <div class="text-4xl mb-4">
+                <span class="text-brown-400"
+                  ><i class="fa-solid fa-magnifying-glass"></i
+                ></span>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Easy Discovery</h3>
+              <p class="text-gray-700">
+                Find your next favorite book with our powerful search and
+                filtering tools.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-brown-50 rounded-lg p-6 text-center shadow"
+            >
+              <div class="text-4xl mb-4">
+                <span class="text-brown-400"
+                  ><i class="fa-solid fa-book-skull"></i
+                ></span>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Personal Library</h3>
+              <p class="text-gray-700">
+                Save favorites, create reading lists, and track your reading
+                progress.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Collections Section -->
+      <section id="collections" class="py-16 bg-brown-100">
+        <div class="max-w-6xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center text-brown-700 mb-12">
+            Popular Collections
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-lg overflow-hidden shadow">
+              <img
+                src="Images/Literature.avif"
+                alt="Fiction"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="font-semibold">Fiction Classics</h3>
+                <p class="text-sm text-gray-600 mt-1">
+                  Timeless novels and stories
+                </p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg overflow-hidden shadow">
+              <img
+                src="Images/Math.jpg"
+                alt="Science"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="font-semibold">Science & Math</h3>
+                <p class="text-sm text-gray-600 mt-1">
+                  Groundbreaking scientific works
+                </p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg overflow-hidden shadow">
+              <img
+                src="Images/History.jpg"
+                alt="History"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="font-semibold">History</h3>
+                <p class="text-sm text-gray-600 mt-1">
+                  Historical accounts and analyses
+                </p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg overflow-hidden shadow">
+              <img
+                src="Images/philosophy.jpg"
+                alt="Philosophy"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="font-semibold">Philosophy</h3>
+                <p class="text-sm text-gray-600 mt-1">
+                  Great philosophical works
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center text-brown-700 mb-12">
+            What Our Readers Say
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-brown-50 p-6 rounded-lg shadow">
+              <p class="text-gray-700 italic mb-4">
+                "ReadersLib has completely transformed my reading habits. I've
+                discovered so many amazing books I wouldn't have found
+                otherwise."
+              </p>
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-brown-200 rounded-full mr-3"></div>
+                <div>
+                  <p class="font-semibold">Sarah Johnson</p>
+                  <p class="text-sm text-gray-600">Book Enthusiast</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-brown-50 p-6 rounded-lg shadow">
+              <p class="text-gray-700 italic mb-4">
+                "As a literature student, ReadersLib has been an invaluable
+                resource for accessing classic texts for my studies."
+              </p>
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-brown-200 rounded-full mr-3"></div>
+                <div>
+                  <p class="font-semibold">Michael Chen</p>
+                  <p class="text-sm text-gray-600">Literature Student</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-brown-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+          <p>© 2025 ReadersLib. All rights reserved.</p>
+          <p class="mt-2 text-brown-200">Discover the world through books</p>
+        </div>
+      </footer>
+    </section>
+
+    <!-- Sign Up Section -->
+    <section
+      id="signupSection"
+      class="hidden min-h-screen flex items-center justify-center p-6 bg-brown-50"
+    >
+      <div class="bg-white rounded-lg shadow-md p-8 w-full max-w-md">
+        <h2 class="text-2xl font-semibold text-brown-700 mb-6 text-center">
+          Create account
+        </h2>
+        <div class="space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <input
+                id="signup_firstname"
+                placeholder="First Name"
+                class="w-full border px-3 py-2 rounded"
+              />
+            </div>
+            <div>
+              <input
+                id="signup_lastname"
+                placeholder="Last Name"
+                class="w-full border px-3 py-2 rounded"
+              />
+            </div>
+          </div>
+          <input
+            id="signup_email"
+            type="email"
+            placeholder="Email"
+            class="w-full border px-3 py-2 rounded"
+          />
+          <input
+            id="signup_phone"
+            type="tel"
+            placeholder="Phone Number"
+            class="w-full border px-3 py-2 rounded"
+          />
+          <input
+            id="signup_password"
+            type="password"
+            placeholder="Password"
+            class="w-full border px-3 py-2 rounded"
+          />
+          <input
+            id="signup_confirm_password"
+            type="password"
+            placeholder="Confirm Password"
+            class="w-full border px-3 py-2 rounded"
+          />
+
+          <label class="text-sm text-gray-600"
+            >Profile picture (optional)</label
+          >
+          <input
+            id="signup_avatar"
+            type="file"
+            accept="image/*"
+            class="w-full"
+          />
+
+          <div class="flex gap-3 mt-4">
+            <button
+              id="signupBtn"
+              class="bg-brown-600 text-white px-4 py-2 rounded flex-1"
+            >
+              Sign up
+            </button>
+            <button
+              onclick="showSection('landing')"
+              class="border px-4 py-2 rounded"
+            >
+              Cancel
+            </button>
+          </div>
+          <p class="text-sm text-gray-600 text-center">
+            Already registered?
+            <button
+              onclick="showSection('signin')"
+              class="text-brown-700 underline"
+            >
+              Sign in
+            </button>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sign In Section -->
+    <section
+      id="signinSection"
+      class="hidden min-h-screen flex items-center justify-center p-6 bg-brown-50"
+    >
+      <div class="bg-white rounded-lg shadow-md p-8 w-full max-w-md">
+        <h2 class="text-2xl font-semibold text-brown-700 mb-6 text-center">
+          Sign in
+        </h2>
+        <div class="space-y-4">
+          <input
+            id="signin_email"
+            type="email"
+            placeholder="Email"
+            class="w-full border px-3 py-2 rounded"
+          />
+          <input
+            id="signin_password"
+            type="password"
+            placeholder="Password"
+            class="w-full border px-3 py-2 rounded"
+          />
+          <div class="flex gap-3 mt-4">
+            <button
+              id="signinBtn"
+              class="bg-brown-600 text-white px-4 py-2 rounded flex-1"
+            >
+              Sign in
+            </button>
+            <button
+              onclick="showSection('landing')"
+              class="border px-4 py-2 rounded"
+            >
+              Back
+            </button>
+          </div>
+          <p class="text-sm text-gray-600 text-center">
+            No account?
+            <button
+              onclick="showSection('signup')"
+              class="text-brown-700 underline"
+            >
+              Create one
+            </button>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main App Section -->
+    <section id="appSection" class="hidden flex flex-col min-h-screen">
+      <!-- NAVBAR -->
+      <header class="bg-brown-700 text-white shadow">
+        <div
+          class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between"
+        >
+          <div class="flex items-center gap-4">
+            <div class="text-lg font-bold">ReadersLib</div>
+          </div>
+
+          <nav class="flex gap-6 justify-center">
+            <button id="nav_library" class="nav-btn hover:underline active">
+              Library
+            </button>
+            <button id="nav_favorites" class="nav-btn hover:underline">
+              Favorites
+            </button>
+            <button id="nav_readingList" class="nav-btn hover:underline">
+              Reading List
+            </button>
+            <button id="nav_myshelf" class="nav-btn hover:underline">
+              My Shelf
+            </button>
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <div
+              id="navUserName"
+              class="cursor-pointer text-sm font-medium"
+            ></div>
+            <img
+              id="navAvatar"
+              class="w-9 h-9 rounded-full border-2 border-white object-cover cursor-pointer"
+              alt="avatar"
+            />
+            <button
+              id="logoutBtn"
+              class="bg-red-600 text-white px-3 py-1 rounded ml-2 hover:bg-red-700"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Search bar (only shown in library view) -->
+      <div id="searchSection" class="max-w-6xl mx-auto px-4 py-4 hidden">
+        <div class="bg-brown-100 p-3 rounded flex items-center gap-2">
+          <input
+            id="searchInput"
+            class="flex-1 rounded-l px-3 py-2 border"
+            placeholder="Search by title, author, or genre..."
+          />
+          <select id="searchBy" class="border px-2 py-2 rounded">
+            <option value="all">All</option>
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+            <option value="subject">Genre</option>
+          </select>
+          <button
+            id="searchBtn"
+            class="bg-brown-600 text-white px-4 py-2 rounded hover:bg-brown-700"
+          >
+            Search
+          </button>
+        </div>
+
+        <!-- Filter buttons -->
+        <div class="flex flex-wrap gap-2 mt-3" id="filterButtons">
+          <button
+            class="filter-btn active px-3 py-1 rounded border"
+            data-filter="all"
+          >
+            All Books
+          </button>
+          <button
+            class="filter-btn px-3 py-1 rounded border"
+            data-filter="available"
+          >
+            Available
+          </button>
+          <button
+            class="filter-btn px-3 py-1 rounded border"
+            data-filter="borrowed"
+          >
+            Borrowed
+          </button>
+          <button
+            class="filter-btn px-3 py-1 rounded border"
+            data-filter="favorites"
+          >
+            Favorites
+          </button>
+        </div>
+      </div>
+
+      <!-- CONTENT -->
+      <main class="flex-grow max-w-6xl mx-auto px-4 py-6">
+        <!-- Library -->
+        <div id="libraryView">
+          <h2 class="text-2xl font-semibold mb-4">Library</h2>
+          <div
+            id="libraryDiv"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          ></div>
+        </div>
+
+        <!-- Favorites -->
+        <div id="favoritesView" class="hidden">
+          <h2 class="text-2xl font-semibold mb-4">Favorites</h2>
+          <table class="w-full bg-white rounded shadow">
+            <thead class="bg-brown-600 text-white">
+              <tr>
+                <th class="p-3 text-left">Title</th>
+                <th class="p-3 text-left">Author</th>
+                <th class="p-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="favoritesTable" class="divide-y"></tbody>
+          </table>
+        </div>
+
+        <!-- Reading List -->
+        <div id="readingListView" class="hidden">
+          <h2 class="text-2xl font-semibold mb-4">Reading List</h2>
+          <table class="w-full bg-white rounded shadow">
+            <thead class="bg-brown-600 text-white">
+              <tr>
+                <th class="p-3 text-left">Title</th>
+                <th class="p-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="readingListTable" class="divide-y"></tbody>
+          </table>
+        </div>
+
+        <!-- My Shelf (formerly Inventory) -->
+        <div id="myshelfView" class="hidden">
+          <h2 class="text-2xl font-semibold mb-4">My Shelf</h2>
+
+          <div class="mb-6">
+            <h3 class="font-semibold mb-2">Borrowed</h3>
+            <table class="w-full bg-white rounded shadow mb-4">
+              <thead class="bg-brown-600 text-white">
+                <tr>
+                  <th class="p-3 text-left">Title</th>
+                  <th class="p-3">Borrowed At</th>
+                  <th class="p-3">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="myshelfBorrowed" class="divide-y"></tbody>
+            </table>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-2">Returned</h3>
+            <table class="w-full bg-white rounded shadow">
+              <thead class="bg-brown-600 text-white">
+                <tr>
+                  <th class="p-3 text-left">Title</th>
+                  <th class="p-3">Returned At</th>
+                  <th class="p-3">Status</th>
+                </tr>
+              </thead>
+              <tbody id="myshelfReturned" class="divide-y"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Profile -->
+        <div id="profileView" class="hidden max-w-lg mx-auto">
+          <h2 class="text-2xl font-semibold mb-4">Profile</h2>
+          <div class="bg-white rounded shadow p-6">
+            <div class="flex flex-col items-center">
+              <img
+                id="profileAvatar"
+                class="w-24 h-24 rounded-full mb-3 object-cover"
+                alt="profile"
+              />
+              <input
+                id="profileAvatarInput"
+                type="file"
+                accept="image/*"
+                class="mb-3"
+              />
+              <div class="w-full">
+                <label class="block text-sm font-medium">Change password</label>
+                <input
+                  id="profileNewPassword"
+                  type="password"
+                  class="w-full border px-3 py-2 rounded mt-2"
+                  placeholder="New password"
+                />
+                <div class="flex gap-2 mt-3">
+                  <button
+                    id="profileChangePasswordBtn"
+                    class="bg-brown-600 text-white px-4 py-2 rounded"
+                  >
+                    Update
+                  </button>
+                  <button
+                    id="profileDeleteAccountBtn"
+                    class="bg-red-600 text-white px-4 py-2 rounded"
+                  >
+                    Delete Account
+                  </button>
+                </div>
+                <p id="profileNote" class="text-sm text-gray-600 mt-2"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="bg-brown-700 text-white text-center py-4">
+        <div class="max-w-6xl mx-auto">© 2025 ReadersLib</div>
+      </footer>
+    </section>
+
+    <!-- DETAILS MODAL -->
+    <div
+      id="detailsModal"
+      class="fixed inset-0 bg-black bg-opacity-60 hidden z-50 modal-container"
+    >
+      <div
+        class="bg-white w-11/12 md:w-3/4 lg:w-2/3 p-6 rounded shadow-lg max-h-[85vh] overflow-y-auto relative"
+      >
+        <button
+          id="detailsCloseBtn"
+          class="absolute top-3 right-3 text-brown-700 text-xl"
+        >
+          ✖
+        </button>
+        <div class="flex flex-col md:flex-row gap-6">
+          <img
+            id="detailsCover"
+            class="w-40 h-56 object-cover rounded self-center md:self-start"
+            alt="cover"
+          />
+          <div>
+            <h3 id="detailsTitle" class="text-2xl font-bold mb-2"></h3>
+            <p id="detailsAuthor" class="italic text-gray-600 mb-4"></p>
+            <p
+              id="detailsSummary"
+              class="text-gray-700 whitespace-pre-line"
+            ></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- READER MODAL (iframe) -->
+    <div
+      id="readerModal"
+      class="fixed inset-0 bg-black bg-opacity-70 hidden z-60 modal-container"
+    >
+      <div class="bg-white w-11/12 h-[90vh] rounded p-4 relative">
+        <button
+          id="readerCloseBtn"
+          class="absolute top-3 right-3 text-brown-700 text-xl"
+        >
+          ✖
+        </button>
+        <iframe id="readerIframe" class="w-full h-full border"></iframe>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/books.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
