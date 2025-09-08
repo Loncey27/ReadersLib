@@ -140,7 +140,7 @@ function initEventListeners() {
     });
 }
 
-// ----------- App Bootstrapping ----------- //
+// -----------  initialize App----------- //
 function init() {
     initEventListeners();
     
